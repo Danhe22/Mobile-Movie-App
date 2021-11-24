@@ -17,7 +17,12 @@ class SignupScreen extends StatelessWidget {
               SizedBox(height: 40,),
               _loginForm(context),
               SizedBox(height: 30,),
-              Text('Ya tengo una cuenta', style: TextStyle(color: Colors.red, fontSize: 14)),
+              TextButton(
+                child: Text('Ya tengo una cuenta', style: TextStyle(color: Colors.red, fontSize: 14)),
+                onPressed: (){
+                  Navigator.pushNamed(context, 'login');
+                },
+              ),
               
             ],
              
@@ -43,7 +48,7 @@ class SignupScreen extends StatelessWidget {
             SizedBox(height: 30,),
             _crearPassword(),
             SizedBox(height: 40,),
-            _crearBoton()
+            _crearBoton(context)
           ],
         ),
       ),
@@ -112,7 +117,7 @@ class SignupScreen extends StatelessWidget {
   }
 
 
-  Widget _crearBoton(){
+  Widget _crearBoton(BuildContext context){
     return RaisedButton(
       child: Container(
       padding: EdgeInsets.symmetric(horizontal: 90.0, vertical:12.0 ),
@@ -122,7 +127,9 @@ class SignupScreen extends StatelessWidget {
       ),
       color: Colors.red,
       textColor: Colors.white,
-      onPressed: (){},
+      onPressed: (){
+        Navigator.pushNamed(context, 'login');
+      },
     );
   }
 

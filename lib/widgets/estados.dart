@@ -36,9 +36,7 @@ class Estados extends StatelessWidget {
             )
           ],
         ),
-        SizedBox(
-          height: 10,
-        ),
+        
         Container(
           padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           width: size.width * 0.8,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_movie_app/widgets/TopBar.dart';
 import 'package:mobile_movie_app/widgets/estados_list.dart';
+import 'package:mobile_movie_app/widgets/peliculas_list.dart';
 import 'package:mobile_movie_app/widgets/post_list.dart';
 import 'package:provider/provider.dart';
 
@@ -59,6 +60,7 @@ class _Pages extends StatelessWidget {
       controller: navegacionModel.pageController,
       physics: NeverScrollableScrollPhysics(),
       children: [
+        //Seccion de posts
         Column(
           children: [
             SafeArea(
@@ -69,6 +71,7 @@ class _Pages extends StatelessWidget {
             PostList()
           ],
         ),
+        //Seccion de estados
         Container(
           child: Column(
             children: [
@@ -81,6 +84,20 @@ class _Pages extends StatelessWidget {
             ],
           ),
         ),
+        //Seccion de peliculas
+        Container(
+          child: Column(
+            children: [
+              SafeArea(
+                  child: Container(
+                height: 5,
+              )),
+              TopBar(),
+              PeliculasList()
+            ],
+          ),
+        ),
+        //Seccion de ubicaciones
         Container(
           child: Column(
             children: [
@@ -91,16 +108,7 @@ class _Pages extends StatelessWidget {
             ],
           ),
         ),
-        Container(
-          child: Column(
-            children: [
-              SafeArea(
-                  child: Container(
-                height: 5,
-              )),
-            ],
-          ),
-        ),
+        //Seccion de perfil
         Container(
           child: Column(
             children: [
