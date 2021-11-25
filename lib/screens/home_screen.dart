@@ -3,6 +3,7 @@ import 'package:mobile_movie_app/widgets/TopBar.dart';
 import 'package:mobile_movie_app/widgets/estados_list.dart';
 import 'package:mobile_movie_app/widgets/peliculas_list.dart';
 import 'package:mobile_movie_app/widgets/post_list.dart';
+import 'package:mobile_movie_app/widgets/profile.dart';
 import 'package:mobile_movie_app/widgets/ubicacion_list.dart';
 import 'package:provider/provider.dart';
 
@@ -119,6 +120,8 @@ class _Pages extends StatelessWidget {
                   child: Container(
                 height: 5,
               )),
+              TopBar(),
+              Profile()
             ],
           ),
         ),
