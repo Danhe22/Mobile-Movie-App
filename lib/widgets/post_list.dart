@@ -7,16 +7,15 @@ class PostList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-          child: ListView(
-            children: [
-              Post(),
-              Post(),
-              Post(),
-              Post()
-            ],
-          ),
-        ),
+      child: ListView(
+          children: [
+            Post(),
+            Post(),
+            Post(),
+            Post()
+          ],
+        
+      ),
     );
       
     

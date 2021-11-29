@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_movie_app/widgets/TopBar.dart';
 import 'package:mobile_movie_app/widgets/estados_list.dart';
 import 'package:mobile_movie_app/widgets/peliculas_list.dart';
 import 'package:mobile_movie_app/widgets/post_list.dart';
@@ -8,11 +7,41 @@ import 'package:mobile_movie_app/widgets/ubicacion_list.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
+  var textStyle = TextStyle(
+      color: Colors.red,
+      fontSize: 24,
+      fontWeight: FontWeight.w900,
+      fontFamily: 'Times New Roman');
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => new _NavegationModel(),
       child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Mobile Movie",
+            style: textStyle,
+          ),
+          automaticallyImplyLeading: false,
+          actions: [
+            IconButton(
+              icon: Icon(
+                Icons.add_box_outlined,
+                color: Colors.black,
+                size: 27,
+              ),
+              onPressed: () {},
+            ),
+            IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.messenger_outline_outlined,
+                  color: Colors.black,
+                  size: 27,
+                ))
+          ],
+          backgroundColor: Colors.white,
+        ),
         body: _Pages(),
         bottomNavigationBar: _Navigation(),
       ),
@@ -30,20 +59,16 @@ class _Navigation extends StatelessWidget {
     final navegacionModel = Provider.of<_NavegationModel>(context);
 
     return BottomNavigationBar(
+      selectedItemColor: Colors.red,
       type: BottomNavigationBarType.fixed,
       currentIndex: navegacionModel.paginaActual,
       onTap: (i) => navegacionModel.paginaActual = i,
       items: [
-        BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined), title: Text('Home')),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.post_add), title: Text('Estados')),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.movie_filter_outlined), title: Text('Peliculas')),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.location_on_outlined), title: Text('Ubicacion')),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_outlined), title: Text('Perfil')),
+        BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: 'Home'),
+        BottomNavigationBarItem(icon: Icon(Icons.post_add), label: 'Estados'),
+        BottomNavigationBarItem(icon: Icon(Icons.movie_filter_outlined), label: 'Peliculas'),
+        BottomNavigationBarItem(icon: Icon(Icons.location_on_outlined), label: 'Ubicacion'),
+        BottomNavigationBarItem(icon: Icon(Icons.account_circle_outlined), label: 'Perfil'),
       ],
     );
   }
@@ -64,67 +89,25 @@ class _Pages extends StatelessWidget {
       children: [
         //Seccion de posts
         Column(
-          children: [
-            SafeArea(
-                child: Container(
-              height: 5,
-            )),
-            TopBar(),
-            PostList()
-          ],
+          children: [SafeArea(child: Container()), PostList()],
         ),
         //Seccion de estados
-        Container(
-          child: Column(
-            children: [
-              SafeArea(
-                  child: Container(
-                height: 5,
-              )),
-              TopBar(),
-              EstadosList()
-            ],
-          ),
+        Column(
+          children: [SafeArea(child: Container()), EstadosList()],
         ),
         //Seccion de peliculas
-        Container(
-          child: Column(
-            children: [
-              SafeArea(
-                  child: Container(
-                height: 5,
-              )),
-              TopBar(),
-              PeliculasList()
-            ],
-          ),
+        Column(
+          children: [SafeArea(child: Container()), PeliculasList()],
         ),
         //Seccion de ubicaciones
-        Container(
-          child: Column(
-            children: [
-              SafeArea(
-                  child: Container(
-                height: 5,
-              )),
-              TopBar(),
-              UbicationList()
-            ],
-          ),
+        Column(
+          children: [SafeArea(child: Container()), UbicationList()],
         ),
         //Seccion de perfil
-        Container(
-          child: Column(
-            children: [
-              SafeArea(
-                  child: Container(
-                height: 5,
-              )),
-              TopBar(),
-              Profile()
-            ],
-          ),
-        ),
+        Expanded(
+            child: Column(
+          children: [SafeArea(child: Container()), Profile()],
+        )),
       ],
     );
   }

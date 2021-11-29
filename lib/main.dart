@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_movie_app/Theme/theme.dart';
 import 'package:mobile_movie_app/screens/home_screen.dart';
 import 'package:mobile_movie_app/screens/login_screen.dart';
 import 'package:mobile_movie_app/screens/signup_screen.dart';
@@ -10,7 +11,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Material App',
+        title: 'Mobile Movie',
+        theme: miTema,
         initialRoute: 'login',
         routes: {
           'login'    : ( BuildContext context ) => LoginScreen(),

@@ -28,12 +28,9 @@ class Profile extends StatelessWidget {
             ),
           ),
           
-          Column(
-            children: [
-              Post(),
-              Post()
-            ],
-          )
+          
+              PostList()
+            
           
            
         ],

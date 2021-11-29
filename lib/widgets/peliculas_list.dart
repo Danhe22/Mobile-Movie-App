@@ -8,21 +8,19 @@ class PeliculasList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-          child: ListView(
-            children: [
-              Pelicula(),
-              Pelicula(),
-              Pelicula(),
-              Pelicula(),
-              Pelicula(),
-              Pelicula(),
-              Pelicula(),
-              Pelicula(),
-              Pelicula(),
-            ],
-          ),
-        ),
+      child: ListView(
+        children: [
+          Pelicula(),
+          Pelicula(),
+          Pelicula(),
+          Pelicula(),
+          Pelicula(),
+          Pelicula(),
+          Pelicula(),
+          Pelicula(),
+          Pelicula(),
+        ],
+      ),
     );
       
     

@@ -8,22 +8,20 @@ class UbicationList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-          child: ListView(
-            children: [
-              Ubication(),
-              Ubication(),
-              Ubication(),
-              Ubication(),
-              Ubication(),
-              Ubication(),
-              Ubication(),
-              Ubication(),
-              Ubication(),
-              Ubication(),
-            ],
-          ),
-        ),
+      child: ListView(
+        children: [
+          Ubication(),
+          Ubication(),
+          Ubication(),
+          Ubication(),
+          Ubication(),
+          Ubication(),
+          Ubication(),
+          Ubication(),
+          Ubication(),
+          Ubication(),
+        ],
+      ),
     );
       
     

@@ -8,19 +8,17 @@ class EstadosList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-          child: ListView(
-            children: [
-              Estados(),
-              Estados(),
-              Estados(),
-              Estados(),
-              Estados(),
-              Estados(),
-              Estados(),
-            ],
-          ),
-        ),
+      child: ListView(
+        children: [
+          Estados(),
+          Estados(),
+          Estados(),
+          Estados(),
+          Estados(),
+          Estados(),
+          Estados(),
+        ],
+      ),
     );
       
     
