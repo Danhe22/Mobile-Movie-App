@@ -1,24 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:mobile_movie_app/Theme/theme.dart';
-import 'package:mobile_movie_app/screens/home_screen.dart';
-import 'package:mobile_movie_app/screens/login_screen.dart';
-import 'package:mobile_movie_app/screens/signup_screen.dart';
+import 'package:mobile_movie_app/routes/my_routes.dart';
 
-void main() => runApp(MyApp());
+
+void main() async {
+WidgetsFlutterBinding.ensureInitialized();
+await Firebase.initializeApp();
+
+runApp(const MyApp());
+} 
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Mobile Movie',
         theme: miTema,
-        initialRoute: 'login',
-        routes: {
-          'login'    : ( BuildContext context ) => LoginScreen(),
-          'signup'   : ( BuildContext context ) => SignupScreen(),
-          'home'     : ( BuildContext context ) => HomeScreen()
-        },
+        initialRoute: '/',
+        navigatorKey: Get.key,
+        getPages: routes(),
+        // routes: {
+        //   'login'    : ( BuildContext context ) => LoginScreen(),
+        //   'signup'   : ( BuildContext context ) => SignupScreen(),
+        //   'home'     : ( BuildContext context ) => HomeScreen()
+        // },
         
       );
     

@@ -12,6 +12,8 @@ class HomeScreen extends StatelessWidget {
       fontSize: 24,
       fontWeight: FontWeight.w900,
       fontFamily: 'Times New Roman');
+
+  HomeScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -104,10 +106,14 @@ class _Pages extends StatelessWidget {
           children: [SafeArea(child: Container()), UbicationList()],
         ),
         //Seccion de perfil
-        Expanded(
-            child: Column(
-          children: [SafeArea(child: Container()), Profile()],
-        )),
+        Column(
+          children: [
+            Expanded(
+                child: Column(
+              children: [SafeArea(child: Container()), Profile()],
+            )),
+          ],
+        ),
       ],
     );
   }

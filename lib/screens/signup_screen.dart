@@ -1,136 +1,150 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
+import 'package:mobile_movie_app/Controller/register_login_controller.dart';
 
 class SignupScreen extends StatelessWidget {
-
+  final controller = Get.put(LoginRegisterController());
   @override
   Widget build(BuildContext context) {
-    
-    return Scaffold(
-      body: /*Container(
-        width: size.width * 0.85,
-        padding: EdgeInsets.symmetric(vertical: 150.0),
-        child: */Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+    return Scaffold(body: GetBuilder<LoginRegisterController>(
+      builder: (_) {
+        return SafeArea(
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Center(child: Text('Registro', style: TextStyle(color: Colors.red, fontSize: 18, fontWeight: FontWeight.bold), )),
-              SizedBox(height: 40,),
+              SizedBox(
+                child: Container(
+                  height: 90,
+                ),
+              ),
+              const Text(
+                'Registro',
+                style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
               _loginForm(context),
-              SizedBox(height: 30,),
+              const SizedBox(
+                height: 30,
+              ),
               TextButton(
-                child: Text('Ya tengo una cuenta', style: TextStyle(color: Colors.red, fontSize: 14)),
-                onPressed: (){
-                  Navigator.pushNamed(context, 'login');
+                child: const Text('Ya tengo una cuenta',
+                    style: TextStyle(color: Colors.red, fontSize: 14)),
+                onPressed: () {
+                  Navigator.pop(context);
                 },
               ),
-              
             ],
-             
-        ),
-      );
-  //  );
+          ),
+        );
+      },
+    ));
+    //  );
   }
 
-  Widget _loginForm(BuildContext context){
-
-    
+  Widget _loginForm(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SingleChildScrollView(
-      child: Container(
+      child: SizedBox(
         width: size.width * 0.8,
-        
-        child: Column(
-          
-          children: [
-            _crearUsuario(),
-            SizedBox(height: 30,),
-            _crearEmail(),
-            SizedBox(height: 30,),
-            _crearPassword(),
-            SizedBox(height: 40,),
-            _crearBoton(context)
-          ],
+        child: Form(
+          key: controller.formKey,
+          child: Column(
+            children: [
+              _crearUsuario(),
+              const SizedBox(
+                height: 30,
+              ),
+              _crearEmail(),
+              const SizedBox(
+                height: 30,
+              ),
+              _crearPassword(),
+              const SizedBox(
+                height: 40,
+              ),
+              _crearBoton(context)
+            ],
+          ),
         ),
       ),
     );
-
   }
 
   Widget _crearUsuario() {
-    
-    return Container(
-      child: TextField(
-        keyboardType: TextInputType.emailAddress,
-        decoration: InputDecoration(
-          icon: Icon(Icons.account_circle_outlined, color: Colors.red,),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.black54)
+    return TextFormField(
+      keyboardType: TextInputType.name,
+      decoration: const InputDecoration(
+          icon: Icon(
+            Icons.account_circle_outlined,
+            color: Colors.red,
           ),
+          focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.black54)),
           // hintText: 'ejemplo@correo.com',
-          labelText: 'Nombre de usuario', 
-          labelStyle: TextStyle(color: Colors.black54) 
-        ),
-      ),
-
+          labelText: 'Nombre de usuario',
+          labelStyle: TextStyle(color: Colors.black54)),
     );
-
   }
 
   Widget _crearEmail() {
-    
-    return Container(
-      child: TextField(
+    return TextFormField(
+        controller: controller.emailController,
         keyboardType: TextInputType.emailAddress,
-        decoration: InputDecoration(
-          icon: Icon(Icons.email_outlined, color: Colors.red,),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.black54)
-          ),
-          // hintText: 'ejemplo@correo.com',
-          labelText: 'Correo electronico', 
-          labelStyle: TextStyle(color: Colors.black54) 
-        ),
-      ),
-
-    );
-
+        decoration: const InputDecoration(
+            icon: Icon(
+              Icons.email_outlined,
+              color: Colors.red,
+            ),
+            focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black54)),
+            // hintText: 'ejemplo@correo.com',
+            labelText: 'Correo electronico',
+            labelStyle: TextStyle(color: Colors.black54)),
+        validator: (value) {
+          if (value == null || value.isEmpty)
+            return 'Ingrese un correo electronico';
+          return null;
+        });
   }
 
   Widget _crearPassword() {
-    
-    return Container(
-      child: TextField(
+    return TextFormField(
+        controller: controller.passwordController,
         obscureText: true,
-        decoration: InputDecoration(
-          icon: Icon(Icons.lock_outline, color: Colors.red,),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.black54)
-          ),
-          // hintText: 'ejemplo@correo.com',
-          labelText: 'Contraseña', 
-          labelStyle: TextStyle(color: Colors.black54) 
-        ),
-      ),
-
-    );
-
+        decoration: const InputDecoration(
+            icon: Icon(
+              Icons.lock_outline,
+              color: Colors.red,
+            ),
+            focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black54)),
+            // hintText: 'ejemplo@correo.com',
+            labelText: 'Contraseña',
+            labelStyle: TextStyle(color: Colors.black54)),
+        validator: (value) {
+          if (value == null || value.isEmpty) return 'Ingrese una contraseña';
+          return null;
+        });
   }
 
-
-  Widget _crearBoton(BuildContext context){
+  Widget _crearBoton(BuildContext context) {
     return RaisedButton(
       child: Container(
-      padding: EdgeInsets.symmetric(horizontal: 90.0, vertical:12.0 ),
-      child: Text('Registrarse')),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)
-      ),
+          padding: const EdgeInsets.symmetric(horizontal: 90.0, vertical: 12.0),
+          child: const Text('Registrarse')),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
       color: Colors.red,
       textColor: Colors.white,
-      onPressed: (){
-        Navigator.pushNamed(context, 'login');
+      onPressed: () async {
+        if (controller.formKey.currentState!.validate()) {
+          controller.register();
+        }
       },
     );
   }
-
 }
