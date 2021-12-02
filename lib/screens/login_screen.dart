@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_movie_app/Controller/login_controller.dart';
+import 'package:mobile_movie_app/screens/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   final controller = Get.put(LoginController());
@@ -30,7 +31,7 @@ class LoginScreen extends StatelessWidget {
               child: const Text('Registrarse',
                   style: TextStyle(color: Colors.red, fontSize: 14)),
               onPressed: () {
-                Get.toNamed('/signup');
+                Get.offAndToNamed('/signup');
               },
             ),
           ],
@@ -46,7 +47,7 @@ class LoginScreen extends StatelessWidget {
       child: SizedBox(
         width: size.width * 0.8,
         child: Form(
-          key: controller.formKey,
+          key: controller.loginKey,
           child: Column(
             children: [
               _crearEmail(),
@@ -120,7 +121,7 @@ class LoginScreen extends StatelessWidget {
         color: Colors.red,
         textColor: Colors.white,
         onPressed: () async {
-          if (controller.formKey.currentState!.validate()) {
+          if (controller.loginKey.currentState!.validate()) {
             await controller.signInWithEmailAndPassword();
           }
         });

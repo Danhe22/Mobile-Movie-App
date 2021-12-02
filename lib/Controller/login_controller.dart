@@ -6,7 +6,7 @@ class LoginController extends GetxController{
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> loginKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
@@ -22,7 +22,7 @@ class LoginController extends GetxController{
       Get.snackbar('Bienvenido', 'Su ingreso ha sido exitoso');
       print('Ingreso satisfactorio');
       Future.delayed(
-        const Duration(seconds: 2),
+        const Duration(milliseconds: 500),
         (){
           Get.toNamed('/home');
         }

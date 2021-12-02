@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
+
 class LoginRegisterController extends GetxController{
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -29,11 +30,12 @@ class LoginRegisterController extends GetxController{
         .user;
     if (user != null) {
       _success = true;
+      Get.snackbar('Registrado', 'Se ha registrado correctamente');
       print('Registro Ok');
       Future.delayed(
-        Duration(seconds: 2),
+        const Duration(milliseconds: 500),
         (){
-          Get.toNamed('/home');
+          Get.offAndToNamed('/');
         },
       );
       _userEmail = user.email!;

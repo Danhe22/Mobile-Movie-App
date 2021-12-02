@@ -9,7 +9,7 @@ class SignupScreen extends StatelessWidget {
     return Scaffold(body: GetBuilder<LoginRegisterController>(
       builder: (_) {
         return SafeArea(
-          child: Column(
+          child: ListView(
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
@@ -17,17 +17,19 @@ class SignupScreen extends StatelessWidget {
                   height: 90,
                 ),
               ),
-              const Text(
-                'Registro',
-                style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold),
+              const Center(
+                child: Text(
+                  'Registro',
+                  style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
               const SizedBox(
                 height: 40,
               ),
-              _loginForm(context),
+              Center(child: _loginForm(context)),
               const SizedBox(
                 height: 30,
               ),
@@ -35,7 +37,7 @@ class SignupScreen extends StatelessWidget {
                 child: const Text('Ya tengo una cuenta',
                     style: TextStyle(color: Colors.red, fontSize: 14)),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Get.offAndToNamed('/');
                 },
               ),
             ],
