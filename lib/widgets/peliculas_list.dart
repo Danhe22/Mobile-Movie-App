@@ -30,22 +30,7 @@ class PeliculasList extends StatelessWidget {
         ],
       ),
     );
-    //
-    // Expanded(
-    //   child: ListView(
-    //     children: const [
-    //       Pelicula(),
-    //       Pelicula(),
-    //       Pelicula(),
-    //       Pelicula(),
-    //       Pelicula(),
-    //       Pelicula(),
-    //       Pelicula(),
-    //       Pelicula(),
-    //       Pelicula(),
-    //     ],
-    //   ),
-    // );
+   
   }
 
   Widget _swipperTarjetas() {

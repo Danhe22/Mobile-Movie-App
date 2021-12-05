@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
             IconButton(
               icon: const Icon(
                 Icons.add_box_outlined,
-                color: Colors.black,
+                color: Colors.black54,
                 size: 27,
               ),
               onPressed: () {},
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {},
                 icon: const Icon(
                   Icons.messenger_outline_outlined,
-                  color: Colors.black,
+                  color: Colors.black54,
                   size: 27,
                 ))
           ],

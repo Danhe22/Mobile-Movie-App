@@ -28,22 +28,20 @@ class MovieHorizontal extends StatelessWidget {
     return populares.map((pelicula) {
       return Container(
         margin: const EdgeInsets.only(right: 15),
-        child: Expanded(
-          child: ListView(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: FadeInImage(
-                  placeholder: const AssetImage('assets/img/no-image.jpg'),
-                  image: NetworkImage(pelicula.getPosterImg()),
-                  fit: BoxFit.cover,
-                  height: 160,
-                ),
+        child: ListView(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: FadeInImage(
+                placeholder: const AssetImage('assets/img/no-image.jpg'),
+                image: NetworkImage(pelicula.getPosterImg()),
+                fit: BoxFit.cover,
+                height: 160,
               ),
-              const SizedBox(height: 5,),
-              Center(child: Text(pelicula.title, overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.caption,))
-            ],
-          ),
+            ),
+            const SizedBox(height: 5,),
+            Center(child: Text(pelicula.title, overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.caption,))
+          ],
         ),
       );
     }).toList();

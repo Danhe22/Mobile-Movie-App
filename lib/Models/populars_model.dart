@@ -94,11 +94,8 @@ class Populars {
       );
 
   getPosterImg() {
-    if (posterPath == null) {
-      return 'https://us.123rf.com/450wm/oleksandrmalysh/oleksandrmalysh1611/oleksandrmalysh161100095/66291752-no-hay-una-c%C3%A1mara-de-fotos-sin-se%C3%B1al-de-prohibici%C3%B3n-rojo.jpg?ver=6';
-    } else {
-      return 'https://image.tmdb.org/t/p/w500/$posterPath';
-    }
+    return 'https://image.tmdb.org/t/p/w500/$posterPath';
+    
   }
 
   Map<String, dynamic> toMap() => {
