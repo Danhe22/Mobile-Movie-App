@@ -97,26 +97,26 @@ class _Pages extends StatelessWidget {
       children: [
         //Seccion de posts
         Column(
-          children: [SafeArea(child: Container()), const PostList()],
+          children: const [PostList()],
         ),
         //Seccion de estados
         Column(
-          children: [SafeArea(child: Container()), const EstadosList()],
+          children: const [EstadosList()],
         ),
         //Seccion de peliculas
         Column(
-          children: [SafeArea(child: Container()), PeliculasList()],
+          children: [ Expanded(child: PeliculasList())],
         ),
         //Seccion de ubicaciones
         Column(
-          children: [SafeArea(child: Container()), const UbicationList()],
+          children: const [UbicationList()],
         ),
         //Seccion de perfil
         Column(
           children: [
             Expanded(
                 child: Column(
-              children: [SafeArea(child: Container()), const Profile()],
+              children: const [Profile()],
             )),
           ],
         ),
