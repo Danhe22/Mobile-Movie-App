@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_movie_app/Controller/login_controller.dart';
-import 'package:mobile_movie_app/screens/signup_screen.dart';
+
 
 class LoginScreen extends StatelessWidget {
   final controller = Get.put(LoginController());
+
+  LoginScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,15 +113,15 @@ class LoginScreen extends StatelessWidget {
   }
 
   Widget _crearBoton(BuildContext context) {
-    return RaisedButton(
+    return ElevatedButton(
         child: Container(
             padding:
                 const EdgeInsets.symmetric(horizontal: 90.0, vertical: 12.0),
             child: const Text('Ingresar')),
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-        color: Colors.red,
-        textColor: Colors.white,
+        style: ElevatedButton.styleFrom(
+          primary: Colors.red,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        ),
         onPressed: () async {
           if (controller.loginKey.currentState!.validate()) {
             await controller.signInWithEmailAndPassword();

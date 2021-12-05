@@ -7,7 +7,7 @@ class Ubication extends StatelessWidget {
   Widget build(BuildContext context) {
     var boxDecoration = BoxDecoration(
       color: Colors.white,
-      borderRadius: BorderRadius.only(
+      borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(5),
           topRight: Radius.circular(5),
           bottomLeft: Radius.circular(5),
@@ -17,7 +17,7 @@ class Ubication extends StatelessWidget {
           color: Colors.grey.withOpacity(0.3),
           spreadRadius: 3,
           blurRadius: 3,
-          offset: Offset(0, 2), // changes position of shadow
+          offset: const Offset(0, 2), // changes position of shadow
         ),
       ],
     );
@@ -26,25 +26,25 @@ class Ubication extends StatelessWidget {
 
     return Column(
       children: [
-        SizedBox(
+        const SizedBox(
             height: 20,
           ),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
           width: size.width * 0.8,
-          child: Text('Cargando mapa con la ubicacion del usuario...'),
+          child: const Text('Cargando mapa con la ubicacion del usuario...'),
           decoration: boxDecoration,
         ),
 
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
 
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           width: size.width * 0.2,
           child: Column(
-            children: [
+            children: const [
               Icon(Icons.account_circle_rounded, size: 40,),
               Text('usuario')
             ],)

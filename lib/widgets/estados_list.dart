@@ -9,7 +9,7 @@ class EstadosList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView(
-        children: [
+        children: const [
           Estados(),
           Estados(),
           Estados(),

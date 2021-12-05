@@ -20,7 +20,6 @@ class LoginController extends GetxController{
       ))
           .user!;
       Get.snackbar('Bienvenido', 'Su ingreso ha sido exitoso');
-      print('Ingreso satisfactorio');
       Future.delayed(
         const Duration(milliseconds: 500),
         (){

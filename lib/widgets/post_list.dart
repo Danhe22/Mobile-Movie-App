@@ -8,7 +8,7 @@ class PostList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView(
-          children: [
+          children: const [
             Post(),
             Post(),
             Post(),

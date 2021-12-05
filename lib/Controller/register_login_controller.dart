@@ -15,6 +15,7 @@ class LoginRegisterController extends GetxController{
   late String _userEmail;  
 
 
+  @override
   void dispose(){
     emailController.dispose();
     passwordController.dispose();
@@ -31,7 +32,6 @@ class LoginRegisterController extends GetxController{
     if (user != null) {
       _success = true;
       Get.snackbar('Registrado', 'Se ha registrado correctamente');
-      print('Registro Ok');
       Future.delayed(
         const Duration(milliseconds: 500),
         (){

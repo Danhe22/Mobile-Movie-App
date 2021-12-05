@@ -4,6 +4,8 @@ import 'package:mobile_movie_app/Controller/register_login_controller.dart';
 
 class SignupScreen extends StatelessWidget {
   final controller = Get.put(LoginRegisterController());
+
+  SignupScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: GetBuilder<LoginRegisterController>(
@@ -108,8 +110,9 @@ class SignupScreen extends StatelessWidget {
             labelText: 'Correo electronico',
             labelStyle: TextStyle(color: Colors.black54)),
         validator: (value) {
-          if (value == null || value.isEmpty)
+          if (value == null || value.isEmpty) {
             return 'Ingrese un correo electronico';
+          }
           return null;
         });
   }
@@ -135,13 +138,15 @@ class SignupScreen extends StatelessWidget {
   }
 
   Widget _crearBoton(BuildContext context) {
-    return RaisedButton(
+    return ElevatedButton(
       child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 90.0, vertical: 12.0),
           child: const Text('Registrarse')),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-      color: Colors.red,
-      textColor: Colors.white,
+      style: ElevatedButton.styleFrom(
+        primary: Colors.red,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),  
+      ),
+      
       onPressed: () async {
         if (controller.formKey.currentState!.validate()) {
           controller.register();
