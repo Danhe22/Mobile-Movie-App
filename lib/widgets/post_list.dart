@@ -6,16 +6,14 @@ class PostList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(
-          children: const [
-            Post(),
-            Post(),
-            Post(),
-            Post()
-          ],
-        
-      ),
+    return ListView(
+        children: const [
+          Post(),
+          Post(),
+          Post(),
+          Post()
+        ],
+      
     );
       
     

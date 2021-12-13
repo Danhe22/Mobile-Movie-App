@@ -39,7 +39,7 @@ class MovieHorizontal extends StatelessWidget {
                 height: 160,
               ),
             ),
-            const SizedBox(height: 5,),
+            const SizedBox(height: 2,),
             Center(child: Text(pelicula.title, overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.caption,))
           ],
         ),

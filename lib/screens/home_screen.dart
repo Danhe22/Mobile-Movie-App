@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_movie_app/main.dart';
 import 'package:mobile_movie_app/widgets/estados_list.dart';
 import 'package:mobile_movie_app/widgets/peliculas_list.dart';
 import 'package:mobile_movie_app/widgets/post_list.dart';
@@ -32,23 +33,27 @@ class HomeScreen extends StatelessWidget {
           centerTitle: false,
           automaticallyImplyLeading: false,
           actions: [
-            IconButton(
-              icon: const Icon(
-                Icons.add_box_outlined,
-                color: Colors.black54,
-                size: 27,
-              ),
-              onPressed: () {},
-            ),
-            IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.messenger_outline_outlined,
-                  color: Colors.black54,
-                  size: 27,
-                ))
+            // IconButton(
+            //   icon: const Icon(
+            //     Icons.add_box_outlined,
+            //     color: Theme.of(context).iconTheme.color,
+            //     size: 27,
+            //   ),
+            //   onPressed: () {},
+            // ),
+            // IconButton(
+            //     onPressed: () {},
+            //     icon: const Icon(
+            //       Icons.messenger_outline_outlined,
+            //       size: 27,
+                  
+            //     ))
+            Icon(Icons.add_box_outlined, color: Theme.of(context).iconTheme.color, size: 27,),
+            const SizedBox(width: 12,),
+            Icon(Icons.messenger_outline_outlined, color: Theme.of(context).iconTheme.color, size: 27,),
+            const SizedBox(width: 8,),
           ],
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         ),
         body: const _Pages(),
         bottomNavigationBar: const _Navigation(),
@@ -97,11 +102,11 @@ class _Pages extends StatelessWidget {
       children: [
         //Seccion de posts
         Column(
-          children: const [PostList()],
+          children: const [Expanded(child: PostList())],
         ),
         //Seccion de estados
         Column(
-          children: const [EstadosList()],
+          children: const [Expanded(child: EstadosList())],
         ),
         //Seccion de peliculas
         Column(

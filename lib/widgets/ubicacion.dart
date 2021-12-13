@@ -6,7 +6,6 @@ class Ubication extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var boxDecoration = BoxDecoration(
-      color: Colors.white,
       borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(5),
           topRight: Radius.circular(5),

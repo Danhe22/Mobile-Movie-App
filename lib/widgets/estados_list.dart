@@ -7,18 +7,16 @@ class EstadosList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(
-        children: const [
-          Estados(),
-          Estados(),
-          Estados(),
-          Estados(),
-          Estados(),
-          Estados(),
-          Estados(),
-        ],
-      ),
+    return ListView(
+      children: const [
+        Estados(),
+        Estados(),
+        Estados(),
+        Estados(),
+        Estados(),
+        Estados(),
+        Estados(),
+      ],
     );
       
     

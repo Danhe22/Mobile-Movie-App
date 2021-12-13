@@ -7,7 +7,7 @@ class Post extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     var boxDecoration = BoxDecoration(
-            color: Colors.white,
+            color: Theme.of(context).backgroundColor,
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(5),
                 topRight: Radius.circular(5),
